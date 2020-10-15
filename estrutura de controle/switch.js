@@ -44,3 +44,5 @@ const imprimirNota = function (n) {
 imprimirNota(10)
 imprimirNota(7)
 imprimirNota(3)
+
+
