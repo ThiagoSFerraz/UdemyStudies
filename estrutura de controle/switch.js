@@ -21,12 +21,26 @@ const imprimirResultado = function (nota) {
     
 }
 
-imprimirResultado(10)
-imprimirResultado(9)
-imprimirResultado(8.9)
-imprimirResultado(5.5)
-imprimirResultado(7.2)
-imprimirResultado(10)
-imprimirResultado(0)
-imprimirResultado(8)
-imprimirResultado(9)
+
+imprimirResultado(7)
+
+//Note que se você retirar os BREAK vai executar todos
+//Exemplo abaixo
+
+const imprimirNota = function (n) {
+    switch (Math.floor(n)) {
+        case 10: case 9: case 8:
+            console.log('Parabéns!')
+        case 7: case 6: case 5: case 4:
+            console.log('You know you can do better!')
+        case 3: case 2: case 1: case 0:
+            console.log('Ok, at this point you are just trash!')
+        default:
+            console.log('Type a Valid number!')
+        
+    }
+}
+
+imprimirNota(10)
+imprimirNota(7)
+imprimirNota(3)
