@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Conceitos Básicos</title>
+        <link rel="stylesheet" href="/css/estilo.css" />
+        <script src="/js/vue.min.js"></script>
+    </head>
+    <body class="exercicio">
+        <!-- Area controlada pelo Vue -->
+        <div id="app">
+            <p>1) {{ 2 + 2 }}</p>
+            <p>2) {{ "teste".toUpperCase()}}</p>
+            <p>
+                3) Produto: {{ nome }}, R$ {{ preco }}, {{ desconto * 100 }}% de
+                desconto
+            </p>
+        </div>
+        <script>
+            new Vue({
+                el: "#app",
+                data: {
+                    nome: "Caneta",
+                    preco: 6.8,
+                    desconto: 0.15,
+                },
+            });
+        </script>
+    </body>
+</html>
