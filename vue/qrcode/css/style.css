@@ -1,28 +1,99 @@
-@font-face {
-    font-family: 'RobotoMono';
-    src: url('../fonts/RobotoMono-Thin.ttf');
-  }
-  
-  * {
-    font-family: 'RobotoMono', monospace;
-  }
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,700;1,800;1,900&display=swap");
+
+* {
+    font-family: "Montserrat", monospace;
+}
 
 body {
     display: flex;
     justify-content: center;
     text-align: center;
-    
-    color: #FFF;
-    background: linear-gradient(to right, rgb(19, 106, 138), rgb(38, 120, 113));
+
+    color: #081c15;
+    background: #8ae2de;
 }
 
+.container {
+    background: #e7f0f0;
+    width: 850px;
+    height: 232px;
+    padding: 10px 10px;
+    margin-top: 50px;
+    border-radius: 20px;
+    animation-name: containerExpand;
+    animation-duration: 500ms;
+    animation-delay: 0ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    box-shadow: #1b30433d 0px 0px 15px;
+}
+.container2 {
+    background: #e7f0f0;
+    width: 850px;
+    padding: 10px 10px;
+    margin-top: 50px;
+    border-radius: 20px;
+    box-shadow: #1b30433d 0px 0px 15px;
+}
+
+.title {
+    font-size: 40px;
+    text-transform: uppercase;
+}
+.info {
+    font-size: 25px;
+}
 input {
-    font-size: 2em;
+    width: 80%;
+    height: 40px;
+    font-size: 18px;
+    padding-left: 10px;
     margin-bottom: 30px;
+    border-radius: 10px;
+    border: #dadada 1px solid;
 }
 
 .output {
-    border: 1px solid #222;
-    padding: 30px 15px;
-    background-color: #0006;
+    box-shadow: #1b3043 0px 0px 15px;
+    margin: 10px;
+    animation-name: qrCode;
+    opacity: 0%;
+    animation-duration: 300ms;
+    animation-delay: 400ms;
+    animation-fill-mode: forwards;
+}
+
+.finished {
+    opacity: 0;
+    animation-name: finished;
+    animation-duration: 1s;
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes containerExpand {
+    from {
+        height: 232px;
+    }
+    to {
+        height: 600px;
+    }
+}
+@keyframes qrCode {
+    from {
+        transform: scale(0);
+        opacity: 0%;
+    }
+    to {
+        transform: scale(1);
+        opacity: 100%;
+    }
+}
+@keyframes finished {
+    from {
+        opacity: 0%;
+    }
+    to {
+        opacity: 100%;
+    }
 }
