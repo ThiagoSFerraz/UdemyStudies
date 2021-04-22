@@ -15,6 +15,8 @@
                 3) Produto: {{ nome }}, R$ {{ preco }}, {{ desconto * 100 }}% de
                 desconto
             </p>
+            <p>4) Preço com desconto: R$ {{ precoComDesconto }}</p>
+            <p>5) Hora certa: {{ horaCerta() }}</p>
         </div>
         <script>
             new Vue({
@@ -23,6 +25,16 @@
                     nome: "Caneta",
                     preco: 6.8,
                     desconto: 0.15,
+                },
+                methods: {
+                    horaCerta() {
+                        return new Date().toLocaleString();
+                    },
+                },
+                computed: {
+                    precoComDesconto() {
+                        return this.preco * (1 - this.desconto);
+                    },
                 },
             });
         </script>
