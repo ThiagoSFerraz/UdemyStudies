@@ -1,15 +1,42 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>If & For</title>
-    <link rel="stylesheet" href="/css/estilo.css">
-    <script src="/js/vue.min.js"></script>
-</head>
-<body class="exercicio">
-
-    <script>
-        // ...
-    </script>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <title>If & For</title>
+        <link rel="stylesheet" href="/css/estilo.css" />
+        <script src="/js/vue.min.js"></script>
+    </head>
+    <body class="exercicio">
+        <div id="app">
+            <p v-for="(aluno, i) in alunos">
+                {{ i + 1}}) {{aluno.nome}} - {{aluno.nota}} -
+                <span v-if="aluno.nota >= 9"> God Like Student </span>
+                <span v-else-if="aluno.nota >= 7">
+                    Can be better but aproved
+                </span>
+                <span v-else-if="aluno.nota >= 5">
+                    Recover your grades, pal.
+                </span>
+                <span v-else> Nah, I think you didn't passed it girl </span>
+            </p>
+            <ul style="list-style: none">
+                <li v-for="n in 5">{{ n }}</li>
+            </ul>
+        </div>
+        <script>
+            new Vue({
+                el: "#app",
+                data: {
+                    alunos: [
+                        { nome: "Ana", nota: 5.0 },
+                        { nome: "Giovanna", nota: 7.0 },
+                        { nome: "Beatriz", nota: 9.5 },
+                        { nome: "Erika", nota: 10.0 },
+                        { nome: "Kelly", nota: 8.0 },
+                        { nome: "Barbara", nota: 2.0 },
+                    ],
+                },
+            });
+        </script>
+    </body>
 </html>
