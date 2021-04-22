@@ -1,19 +1,65 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="UTF-8" />
+        <script src="js/vue.min.js"></script>
+        <script src="js/qrious.min.js"></script>
+        <link rel="stylesheet" href="css/style.css" />
+        <title>Gerador de QRCode</title>
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <script src="js/vue.min.js"></script>
-    <script src="js/qrious.min.js"></script>
-    <link rel="stylesheet" href="css/style.css">
-    <title>Gerador de QRCode</title>
-</head>
-
-<body>
-
-    <script>
-        // ...
-    </script>
-</body>
-
+    <body>
+        <div id="app">
+            <div v-if="text">
+                <div class="container">
+                    <h1 class="title">{{title}}</h1>
+                    <p class="info">
+                        {{ info }}
+                    </p>
+                    <div>
+                        <input
+                            type="text"
+                            size="25"
+                            placeholder="Digite para gerar um QRcode"
+                            v-model="text"
+                        />
+                    </div>
+                    <img :src="newQRCode" alt="QRCode" class="output" />
+                    <p class="finished">Terminou? Agora é só escanear o QRCode acima! :)</p>
+                </div>
+            </div>
+            <div v-else>
+                <div class="container2">
+                    <h1 class="title">{{title}}</h1>
+                    <p class="info">
+                        {{ info }}
+                    </p>
+                    <div>
+                        <input
+                            type="text"
+                            size="25"
+                            placeholder="Digite para gerar um QRcode"
+                            v-model="text"
+                        />
+                </div>
+            </div>
+        </div>
+        <script>
+            new Vue({
+                el: "#app",
+                data: {
+                    title: "Gerador de QRCode",
+                    info: "Digite ou cole um link abaixo para transforma-lo em QRCode",
+                    text: "",
+                    qrcode: new QRious({ size: 300 }),
+                },
+                computed: {
+                    newQRCode() {
+                        this.qrcode.value = this.text;
+                        return this.qrcode.toDataURL();
+                    },
+                },
+            });
+        </script>
+    </body>
 </html>
